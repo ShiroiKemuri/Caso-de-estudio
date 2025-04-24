@@ -10,4 +10,11 @@ dependencies {
     providedCompile 'jakarta.platform:jakarta.jakartaee-web-api:11.0.0'
     
     testImplementation     'junit:junit:4.13'
+    
+// https://mvnrepository.com/artifact/jakarta.platform/jakarta.jakartaee-api
+    compileOnly 'jakarta.platform:jakarta.jakartaee-api:11.0.0-RC1'
+
+    // https://mvnrepository.com/artifact/org.primefaces/primefaces
+    implementation 'org.primefaces:primefaces:15.0.2:jakarta'
+    
 }

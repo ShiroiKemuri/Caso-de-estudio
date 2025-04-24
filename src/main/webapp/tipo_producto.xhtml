@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+      <h:head>
+        <title>Gestionar Tipo Producto</title>
+    </h:head>
+    <h:body>
+        <h:form id="formulario">
+            <p:card style="width: 35rem; margin-bottom: 2em">
+                <f:facet name="title">
+                    Gestionar Tipo de Productos
+                </f:facet>
+                
+                <p:messages id="msg" globalOnly="true" showDetail="false" />
+                <p:panelGrid columns="3">
+                    <p:outputLabel for="descripcion" value="Descripción"/>
+                    <p:inputText id="descripcion"
+                                 value="#{controladorTP.tipoProducto.descripcion}"
+                                 required="true">
+                    <p:message for="descripcion"/>
+
+                    <p:outputLabel for="@next" value="Impuesto"/>
+                    <p:inputNumber id="impuesto" symbol="%" symbolPosition="s" 
+                                   decimalPlaces="0" required="true"
+                                   minValue="0" maxValue="100"
+                                   value="#{controladorTP.tipoProducto.porcentajeIva}"/>
+                    <p:message for="@previous"/>
+                </p:panelGrid>
+
+                <f:facet name="footer">
+                    <p:commandButton type="button" value="Guardar"
+                                     icon="pi pi-save"/>
+                    <p:spacer width="3"/>
+                    <p:commandButton value="Cancelar"
+                                     icon="pi pi-times"
+                                     action="#{controladorTP.cancelar()}"
+                                     process="@this" update="@form"/>
+                </f:facet>
+            </p:card>
+        </h:form>
+    </h:body>
+</html>
